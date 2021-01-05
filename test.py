@@ -29,7 +29,7 @@ elif os.path.exists('vue-storefront-api'):
 # Make backup copy for .json file
 chn_path = os.chdir('./vue-storefront-api')
 shutil.copyfile('./config/default.json', './config/local.json')
-print(os.getcwd())
+#print(os.getcwd())
 
 #Run command for docker -compose
 cmd = 'docker-compose -f docker-compose.yml -f docker-compose.nodejs.yml up -d'
@@ -41,7 +41,7 @@ os.system ('curl -XGET http://localhost:9200/_mapping?pretty=true')
 
 #change Directory
 chan_path = os.chdir('../')
-print(os.getcwd())
+#print(os.getcwd())
 
 # Download git repo for vue-storefront
 if not os.path.exists('vue-storefront'):
@@ -56,7 +56,7 @@ chan_path = os.chdir('../')
 os.chmod('./vue-storefront', 0o777)
 chn_path = os.chdir('./vue-storefront')
 shutil.copyfile('./config/default.json', './config/local.json')
-print(os.getcwd())
+#print(os.getcwd())
 my_file = open("docker-compose.yml")
 string_list = my_file.readlines()
 my_file.close()
@@ -72,11 +72,11 @@ print(read_file)
 # os.system ('sudo yarn install')
 # os.system('sudo npm i -g @vue-storefront/cli')
 os.chdir ('./src/themes/capybara/scripts')
-print(os.getcwd())
+#print(os.getcwd())
 os.system('sudo yarn install')
 os.system('node generate-local-config.js')
 os.chdir('../')
-print(os.getcwd())
+#print(os.getcwd())
 newPath = shutil.copy('local.json', '../../../config')
 os.chdir('../../../')
 print(os.getcwd())
@@ -94,7 +94,7 @@ read_file = readable_file.read()
 print(read_file)
 os.system('sudo npm install --g lerna')
 os.system('lerna bootstrap && yarn build')
-print (bcolors.WARNING + 'select the Capybara theam and  Select default' )
+#print (bcolors.WARNING + 'select the Capybara theam and  Select default' )
 
 #os.system('vsf init:theme')
 
@@ -102,9 +102,9 @@ print (bcolors.WARNING + 'select the Capybara theam and  Select default' )
 cmd = 'docker-compose up -d'
 os.system(cmd)
 
-print("something")
-time.sleep(60)    # Pause 5.5 seconds
-print("something")
+print("Ready to go Wait for 2 min")
+time.sleep(120)    # Pause 5.5 seconds
+print("Cook Book is ready")
 
 
 print (bcolors.OKBLUE + "Open Url localhost:3000")
